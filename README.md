@@ -57,6 +57,7 @@ PS: Если вы постоянный читатель, вы можете уз�
     + [▶ Исчезающая переменная из внешней области видимости](#-the-disappearing-variable-from-outer-scope)
     + [▶ Загадочное преобразование типа ключа](#-the-mysterious-key-type-conversion)
     + [▶ Посмотрим, сможете ли вы угадать это?](#-lets-see-if-you-can-guess-this)
+    + [▶ Exceeds the limit for integer string conversion](#-exceeds-the-limit-for-integer-string-conversion)
   * [Раздел: Скользкие склоны](#section-slippery-slopes)
     + [▶ Изменение словаря во время итерации по нему](#-modifying-a-dictionary-while-iterating-over-it)
     + [▶ Упрямая операция `del`](#-stubborn-del-operation)
@@ -401,7 +402,7 @@ As per https://docs.python.org/3/reference/expressions.html#comparisons
 
 ---
 
-### ▶ How not to use `is` operator
+### ▶ Как не надо использовать оператор `is`
 <!-- Example ID: 230fa2ac-ab36-4ad1-b675-5f5a1c1a6217 --->
 Ниже приведен очень известный пример, представленный во всем Интернете.
 
@@ -1913,7 +1914,7 @@ str
 
 ---
 
-### ▶ Let's see if you can guess this?
+### ▶ Посмотрим, сможете ли вы угадать что здесь?
 <!-- Example ID: 81aa9fbe-bd63-4283-b56d-6fdd14c9105e --->
 ```py
 a, b = a[b] = {}, 5
@@ -1925,7 +1926,7 @@ a, b = a[b] = {}, 5
 {5: ({...}, 5)}
 ```
 
-#### 💡 Explanation:
+#### 💡 Объяснение:
 
 * According to [Python language reference](https://docs.python.org/3/reference/simple_stmts.html#assignment-statements), assignment statements have the form
   ```
@@ -1968,7 +1969,32 @@ a, b = a[b] = {}, 5
   True
   ```
 
----
+### ▶ Exceeds the limit for integer string conversion
+```py
+>>> # Python 3.10.6
+>>> int("2" * 5432)
+>>> # Python 3.10.8
+>>> int("2" * 5432)
+```
+**Вывод:**
+```py
+>>> # Python 3.10.6
+222222222222222222222222222222222222222222222222222222222222222...
+>>> # Python 3.10.8
+Traceback (most recent call last):
+   ...
+ValueError: Exceeds the limit (4300) for integer string conversion:
+   value has 5432 digits; use sys.set_int_max_str_digits()
+   to increase the limit.
+```
+#### 💡 Объяснение:
+Этот вызов `int()` прекрасно работает в Python 3.10.6 и вызывает ошибку ValueError в Python 3.10.8. Обратите внимание, что Python все еще может работать с большими целыми числами. Ошибка возникает только при преобразовании между целыми числами и строками.
+К счастью, вы можете увеличить предел допустимого количества цифр, если ожидаете, что операция превысит его. Для этого можно воспользоваться одним из следующих способов:
+- -X int_max_str_digits command-line flag
+- set_int_max_str_digits() function from the sys module
+- PYTHONINTMAXSTRDIGITS environment variable
+[Смотри документацию](https://docs.python.org/3/library/stdtypes.html#int-max-str-digits) для получения более подробной информации об изменении лимита по умолчанию, если вы ожидаете, что ваш код превысит это значение.
+
 ---
 
 ## Section: Slippery Slopes
