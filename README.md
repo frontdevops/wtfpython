@@ -1993,6 +1993,7 @@ ValueError: Exceeds the limit (4300) for integer string conversion:
 - -X int_max_str_digits command-line flag
 - set_int_max_str_digits() function from the sys module
 - PYTHONINTMAXSTRDIGITS environment variable
+
 [Смотри документацию](https://docs.python.org/3/library/stdtypes.html#int-max-str-digits) для получения более подробной информации об изменении лимита по умолчанию, если вы ожидаете, что ваш код превысит это значение.
 
 ---
