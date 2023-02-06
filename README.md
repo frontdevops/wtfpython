@@ -78,7 +78,7 @@ PS: Если вы постоянный читатель, вы можете уз�
   * [Раздел: Скрытые сокровища!](#section-the-hidden-treasures)
     + [▶ О'кей Питон, ты можешь заставить меня летать?](#-okay-python-can-you-make-me-fly)
     + [▶ `goto`, но почему?](#-goto-but-why)
-    + [▶ Brace yourself!](#-brace-yourself)
+    + [▶ Держитесь!](#-brace-yourself)
     + [▶ Давайте встретимся с дружелюбным языковым дядей на всю жизнь](#-lets-meet-friendly-language-uncle-for-life)
     + [▶ Даже Python понимает, что любовь - это сложно](#-even-python-understands-that-love-is-complicated)
     + [▶ Да, это существует!](#-yes-it-exists)
@@ -3001,22 +3001,23 @@ Freedom!
 
 ---
 
-### ▶ Brace yourself!
+### ▶ Держитесь!
 <!-- Example ID: 5c0c75f2-ddd9-4da3-ba49-c4be7ec39acf --->
-If you are one of the people who doesn't like using whitespace in Python to denote scopes, you can use the C-style {} by importing,
+Если вы относитесь к тем людям, которым не нравится использование пробелов в Python для обозначения диапазонов, вы можете использовать C-стиль {} импортировав это,
 
 ```py
 from __future__ import braces
 ```
 
-**Output:**
+**Результат:**
 ```py
   File "some_file.py", line 1
     from __future__ import braces
 SyntaxError: not a chance
 ```
 
-Braces? No way! If you think that's disappointing, use Java. Okay, another surprising thing, can you find where's the `SyntaxError` raised in `__future__` module [code](https://github.com/python/cpython/blob/master/Lib/__future__.py)?
+Скобочки? Ни за что! Если это разочаровывало вас, используйте PHP :). Хорошо, еще одна удивительная вещь, можете ли вы найти ошибку
+`SyntaxError` которая вызвана в модуле `__future__` [code](https://github.com/python/cpython/blob/master/Lib/__future__.py)?
 
 #### 💡 Explanation:
 + The `__future__` module is normally used to provide features from future versions of Python. The "future" in this specific context is however, ironic.
@@ -3026,9 +3027,10 @@ Braces? No way! If you think that's disappointing, use Java. Okay, another surpr
 
 ---
 
-### ▶ Let's meet Friendly Language Uncle For Life
+### ▶ Давайте познакомимся с дружелюбным Дядей Барри
 <!-- Example ID: 6427fae6-e959-462d-85da-ce4c94ce41be --->
-**Output (Python 3.x)**
+
+**Результат (Python 3.x)**
 ```py
 >>> from __future__ import barry_as_FLUFL
 >>> "Ruby" != "Python" # there's no doubt about it
@@ -3041,15 +3043,16 @@ SyntaxError: invalid syntax
 True
 ```
 
-There we go.
+Вот так просто.
 
-#### 💡 Explanation:
-- This is relevant to [PEP-401](https://www.python.org/dev/peps/pep-0401/) released on April 1, 2009 (now you know, what it means).
-- Quoting from the PEP-401
+#### 💡 Объяснение:
+- Это относится к [PEP-401](https://www.python.org/dev/peps/pep-0401/) released on April 1, 2009 (now you know, what it means).
+- Цитируя из PEP-401
   
   > Recognized that the != inequality operator in Python 3.0 was a horrible, finger-pain inducing mistake, the FLUFL reinstates the <> diamond operator as the sole spelling.
-- There were more things that Uncle Barry had to share in the PEP; you can read them [here](https://www.python.org/dev/peps/pep-0401/).
-- It works well in an interactive environment, but it will raise a `SyntaxError` when you run via python file (see this [issue](https://github.com/satwikkansal/wtfpython/issues/94)). However, you can wrap the statement inside an `eval` or `compile` to get it working,
+  Некоторые считают, что оператор неравенства != в Python 3.0 отвратительный (хотя в других языках это вполне привычная и узнаваемая конструкция) и вызывал боль, FLUFL разрешает единственный вариант оператора неравенства в виде ромба <>.
+- У Дяди Барри было еще много чего рассказать в PEP; вы можете прочитать их [здесь](https://www.python.org/dev/peps/pep-0401/).
+- Это работает хорошо в интерактивной среде, но при запуске через файл python вызывает `SyntaxError` (смотри этот [ишью](https://github.com/satwikkansal/wtfpython/issues/94)). Однако вы можете обернуть оператор внутри `eval` или `compile`, чтобы заставить его работать (но зачем?)
     ```py
     from __future__ import barry_as_FLUFL
     print(eval('"Ruby" <> "Python"'))
@@ -3057,40 +3060,40 @@ There we go.
 
 ---
 
-### ▶ Even Python understands that love is complicated
+### ▶ Даже Python понимает, что любовь - это сложно.
 <!-- Example ID: b93cad9e-d341-45d1-999c-fcdce65bed25 --->
 ```py
 import this
 ```
 
-Wait, what's **this**? `this` is love :heart:
+Подождите, что **это** (this) такое? Это любовь! :heart:
 
-**Output:**
+**Результат:**
 ```
-The Zen of Python, by Tim Peters
+Дзен Python, от Тима Петерса
 
-Beautiful is better than ugly.
-Explicit is better than implicit.
-Simple is better than complex.
-Complex is better than complicated.
-Flat is better than nested.
-Sparse is better than dense.
-Readability counts.
-Special cases aren't special enough to break the rules.
-Although practicality beats purity.
-Errors should never pass silently.
-Unless explicitly silenced.
-In the face of ambiguity, refuse the temptation to guess.
-There should be one-- and preferably only one --obvious way to do it.
-Although that way may not be obvious at first unless you're Dutch.
-Now is better than never.
-Although never is often better than *right* now.
-If the implementation is hard to explain, it's a bad idea.
-If the implementation is easy to explain, it may be a good idea.
-Namespaces are one honking great idea -- let's do more of those!
+Красивое лучше, чем уродливое.
+Явное лучше, чем неявное.
+Простое лучше, чем сложное.
+Сложное лучше, чем запутанное.
+Плоское лучше, чем вложенное.
+Разреженное лучше, чем плотное.
+Читаемость имеет значение.
+Особые случаи не настолько особые, чтобы нарушать правила.
+При этом практичность важнее безупречности.
+Ошибки никогда не должны замалчиваться.
+Если они не замалчиваются явно.
+Встретив двусмысленность, отбрось искушение угадать.
+Должен существовать один и, желательно, только один очевидный способ сделать это.
+Хотя он поначалу может быть и не очевиден, если вы не голландец [^1].
+Сейчас лучше, чем никогда.
+Хотя никогда зачастую лучше, чем прямо сейчас.
+Если реализацию сложно объяснить — идея плоха.
+Если реализацию легко объяснить — идея, возможно, хороша.
+Пространства имён — отличная штука! Будем делать их больше!
 ```
 
-It's the Zen of Python!
+Это Дзен Python!
 
 ```py
 >>> love = this
@@ -3106,11 +3109,15 @@ True
 True
 ```
 
-#### 💡 Explanation:
+#### 💡 Объяснение:
 
 * `this` module in Python is an easter egg for The Zen Of Python ([PEP 20](https://www.python.org/dev/peps/pep-0020)).
 * And if you think that's already interesting enough, check out the implementation of [this.py](https://hg.python.org/cpython/file/c3896275c0f6/Lib/this.py). Interestingly, **the code for the Zen violates itself** (and that's probably the only place where this happens).
 * Regarding the statement `love is not True or False; love is love`, ironic but it's self-explanatory (if not, please see the examples related to `is` and `is not` operators).
+
+* Модуль `this` в Python - это пасхальное яйцо для The Zen Of Python ([PEP 20](https://www.python.org/dev/peps/pep-0020)).
+* И если вы думаете, что это уже достаточно интересно, посмотрите реализацию [this.py](https://hg.python.org/cpython/file/c3896275c0f6/Lib/this.py). Интересно, что **код для дзена нарушает сам себя** (и это, вероятно, единственное место, где это происходит, но это не точно).
+* Что касается утверждения `любовь не является истиной или ложью; любовь - это любовь`, иронично, но это самоочевидно (если нет, пожалуйста, посмотрите примеры, связанные с операторами `is` и `is not`).
 
 ---
 
