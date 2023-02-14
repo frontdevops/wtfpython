@@ -330,7 +330,7 @@ print(a is b)
 
 4\.
 
-**Output (< Python3.7 )**
+**Результат (< Python3.7 )**
 
 ```py
 >>> 'a' * 20 is 'aaaaaaaaaaaaaaaaaaaa'
@@ -435,7 +435,7 @@ True
 ```
 
 3\.
-**Output**
+**Результат**
 
 ```py
 >>> a, b = 257, 257
@@ -771,7 +771,7 @@ def one_more_func(): # A gotcha!
         print("Zero division error occurred", e)
 ```
 
-**Output:**
+**Результат:**
 
 ```py
 >>> some_func()
@@ -830,7 +830,7 @@ for i, some_dict[i] in enumerate(some_string):
       i = 10
   ```
 
-  **Output:**
+  **Результат:**
   ```
   0
   1
@@ -950,7 +950,7 @@ row = [""] * 3 #row i['', '', '']
 board = [row] * 3
 ```
 
-**Output:**
+**Результат:**
 
 ```py
 >>> board
@@ -1154,7 +1154,7 @@ class SomeClass:
         pass
 ```
 
-**Output:**
+**Результат:**
 ```py
 >>> print(SomeClass.method is SomeClass.method)
 True
@@ -1356,7 +1356,7 @@ x = True
 y = False
 ```
 
-**Output:**
+**Результат:**
 ```py
 >>> not x == y
 True
@@ -1422,7 +1422,7 @@ for item in mixed_list:
         booleans_found_so_far += 1
 ```
 
-**Output:**
+**Результат:**
 ```py
 >>> integers_found_so_far
 4
@@ -1450,7 +1450,7 @@ def tell_truth():
         print("I have lost faith in truth!")
 ```
 
-**Output (< 3.x):**
+**Результат (< 3.x):**
 
 ```py
 >>> tell_truth()
@@ -1459,9 +1459,9 @@ I have lost faith in truth!
 
 
 
-#### 💡 Explanation:
+#### 💡 Объяснение:
 
-* `bool` is a subclass of `int` in Python
+* `bool` это подкласс класса `int` в Python
     
     ```py
     >>> issubclass(bool, int)
@@ -1470,7 +1470,7 @@ I have lost faith in truth!
     False
     ```
     
-* And thus, `True` and `False` are instances of `int`
+* И `True` и так же `False` это инстансы класса `int`
   ```py
   >>> isinstance(True, int)
   True
@@ -1478,7 +1478,7 @@ I have lost faith in truth!
   True
   ```
 
-* The integer value of `True` is `1` and that of `False` is `0`.
+* Целочисленное значение `True` равно `1`, а `False` равно `0`.
   ```py
   >>> int(True)
   1
@@ -1486,15 +1486,15 @@ I have lost faith in truth!
   0
   ```
 
-* See this StackOverflow [answer](https://stackoverflow.com/a/8169049/4354153) for the rationale behind it.
+* Смотри StackOverflow [answer](https://stackoverflow.com/a/8169049/4354153) там есть объяснение.
 
-* Initially, Python used to have no `bool` type (people used 0 for false and non-zero value like 1 for true).  `True`, `False`, and a `bool` type was added in 2.x versions, but, for backward compatibility, `True` and `False` couldn't be made constants. They just were built-in variables, and it was possible to reassign them
+* Изначально в Python не было типа `bool` (использовали 0 для false и ненулевое значение 1 для true).  В версиях 2.x были добавлены `True`, `False` и тип `bool`, но для обратной совместимости `True` и `False` нельзя было сделать константами. Они просто были встроенными переменными, и их можно было переназначить.
 
-* Python 3 was backward-incompatible, the issue was finally fixed, and thus the last snippet won't work with Python 3.x!
+* Python 3 был несовместим с предыдущими версиями, эту проблему наконец-то исправили, и поэтому последний фрагмент не будет работать с Python 3.x!
 
 ---
 
-### ▶ Class attributes and instance attributes
+### ▶ Атрибуты класса и экземпляра
 <!-- Example ID: 6f332208-33bd-482d-8106-42863b739ed9 --->
 1\.
 ```py
@@ -1508,7 +1508,7 @@ class C(A):
     pass
 ```
 
-**Output:**
+**Результат:**
 ```py
 >>> A.x, B.x, C.x
 (1, 1, 1)
@@ -1538,7 +1538,7 @@ class SomeClass:
         self.another_list += [x]
 ```
 
-**Output:**
+**Результат:**
 
 ```py
 >>> some_obj = SomeClass(420)
@@ -1557,14 +1557,13 @@ True
 True
 ```
 
-#### 💡 Explanation:
+#### 💡 Объяснение:
 
-* Class variables and variables in class instances are internally handled as dictionaries of a class object. If a variable name is not found in the dictionary of the current class, the parent classes are searched for it.
-* The `+=` operator modifies the mutable object in-place without creating a new object. So changing the attribute of one instance affects the other instances and the class attribute as well.
-
+* Переменные класса и переменные экземпляров класса внутренне обрабатываются как словари объекта класса. Если имя переменной не найдено в словаре текущего класса, оно ищется в родительских классах.
+* Оператор += изменяет изменяемый объект на месте, не создавая новый объект. Таким образом, изменение атрибута одного экземпляра влияет на другие экземпляры и атрибут класса также.
 ---
 
-### ▶ yielding None
+### ▶ Возврат None из генератора (yielding None)
 <!-- Example ID: 5a40c241-2c30-40d0-8ba9-cf7e097b3b53 --->
 ```py
 some_iterable = ('a', 'b')
@@ -1573,7 +1572,7 @@ def some_func(val):
     return "something"
 ```
 
-**Output (<= 3.7.x):**
+**Результат (<= 3.7.x):**
 
 ```py
 >>> [x for x in some_iterable]
@@ -1588,11 +1587,11 @@ def some_func(val):
 ['a', 'something', 'b', 'something']
 ```
 
-#### 💡 Explanation:
-- This is a bug in CPython's handling of `yield` in generators and comprehensions.
-- Source and explanation can be found here: https://stackoverflow.com/questions/32139885/yield-in-list-comprehensions-and-generator-expressions
-- Related bug report: https://bugs.python.org/issue10544
-- Python 3.8+ no longer allows `yield` inside list comprehension and will throw a `SyntaxError`.
+#### 💡 Объяснение:
+- Это баг в обработке yield в генераторах и списочных выражениях CPython.
+- Исходный код и объяснение можно найти здесь: https://stackoverflow.com/questions/32139885/yield-in-list-comprehensions-and-generator-expressions
+- Связанный отчет об ошибке: https://bugs.python.org/issue10544
+- В Python 3.8+ yield внутри списочных выражений больше не допускается и выдает SyntaxError.
 
 ---
 
@@ -1609,14 +1608,14 @@ def some_func(x):
         yield from range(x)
 ```
 
-**Output (> 3.3):**
+**Результат (> 3.3):**
 
 ```py
 >>> list(some_func(3))
 []
 ```
 
-Where did the `"wtf"` go? Is it due to some special effect of `yield from`? Let's validate that,
+Куда исчезло "wtf"? Это связано с каким-то особым эффектом yield from? Давайте проверим это. То же самое, это тоже не сработало.
 
 2\.
 
@@ -1629,24 +1628,24 @@ def some_func(x):
           yield i
 ```
 
-**Output:**
+**Результат:**
 
 ```py
 >>> list(some_func(3))
 []
 ```
 
-The same result, this didn't work either.
+То же самое, это тоже не сработало. Что происходит?
 
-#### 💡 Explanation:
+#### 💡 Объяснение:
 
-+ From Python 3.3 onwards, it became possible to use `return` statement with values inside generators (See [PEP380](https://www.python.org/dev/peps/pep-0380/)). The [official docs](https://www.python.org/dev/peps/pep-0380/#enhancements-to-stopiteration) say that,
++ С Python 3.3 стало возможным использовать оператор return в генераторах с возвращением значения (см. PEP380). В официальной документации говорится, что
 
-> "... `return expr` in a generator causes `StopIteration(expr)` to be raised upon exit from the generator."
+> "... return expr в генераторе вызывает исключение StopIteration(expr) при выходе из генератора."
 
-+ In the case of `some_func(3)`, `StopIteration` is raised at the beginning because of `return` statement. The `StopIteration` exception is automatically caught inside the `list(...)` wrapper and the `for` loop. Therefore, the above two snippets result in an empty list.
++ В случае some_func(3) StopIteration возбуждается в начале из-за оператора return. Исключение StopIteration автоматически перехватывается внутри обертки list(...) и цикла for. Поэтому два вышеприведенных фрагмента приводят к пустому списку.
 
-+ To get `["wtf"]` from the generator `some_func` we need to catch the `StopIteration` exception,
++ Чтобы получить ["wtf"] из генератора some_func, нам нужно перехватить исключение StopIteration.
 
   ```py
   try:
@@ -1675,7 +1674,7 @@ c = float('-iNf')  # These strings are case-insensitive
 d = float('nan')
 ```
 
-**Output:**
+**Результат:**
 
 ```py
 >>> a
@@ -1715,11 +1714,12 @@ True
 
 
 
-#### 💡 Explanation:
+#### 💡 Объяснение:
 
-- `'inf'` and `'nan'` are special strings (case-insensitive), which, when explicitly typecast-ed to `float` type, are used to represent mathematical "infinity" and "not a number" respectively.
+- `'inf'` и `'nan'` - это специальные строки (без учета регистра), которые при явном приведении к типу float используются для представления математической "бесконечности" и "не число" соответственно.
 
-- Since according to IEEE standards ` NaN != NaN`, obeying this rule breaks the reflexivity assumption of a collection element in Python i.e. if `x` is a part of a collection like `list`, the implementations like comparison are based on the assumption that `x == x`.  Because of this assumption, the identity is compared first (since it's faster) while comparing two elements, and the values are compared only when the identities mismatch. The following snippet will make things clearer,
+- Поскольку согласно стандартам IEEE `NaN! = NaN`, соблюдение этого правила нарушает предположение о рефлексивности элемента коллекции в Python, то есть если x является частью коллекции, такой как `list`, реализации, такие как сравнение, основаны на предположении, что `x == x`. Из-за этого предположения сначала сравниваются идентификаторы (так как это быстрее),
+  когда сравниваются два элемента, а значения сравниваются только при несовпадении идентификаторов. Следующий фрагмент сделает вещи более ясными:
 
   ```py
   >>> x = float('nan')
@@ -1732,24 +1732,24 @@ True
   (False, False)
   ```
 
-  Since the identities of `x` and `y` are different, the values are considered, which are also different; hence the comparison returns `False` this time.
+  Поскольку идентификаторы `x` и `y` разные, рассматриваются значения, которые также различаются; следовательно, на этот раз сравнение возвращает `False`.
 
-- Interesting read: [Reflexivity, and other pillars of civilization](https://bertrandmeyer.com/2010/02/06/reflexivity-and-other-pillars-of-civilization/)
+- Интересное чтение: [Рефлексивность и другие основы цивилизации](https://bertrandmeyer.com/2010/02/06/reflexivity-and-other-pillars-of-civilization/)
 
 ---
 
-### ▶ Mutating the immutable!
+### ▶ Мутируем немутируемое!
 
 <!-- Example ID: 15a9e782-1695-43ea-817a-a9208f6bb33d --->
 
-This might seem trivial if you know how references work in Python.
+Это может показаться тривиальным, если вы знаете, как работают ссылки в Python. Но если вы не знаете, то это может быть немного удивительно.
 
 ```py
 some_tuple = ("A", "tuple", "with", "values")
 another_tuple = ([1, 2], [3, 4], [5, 6])
 ```
 
-**Output:**
+**Результат:**
 ```py
 >>> some_tuple[2] = "change this"
 TypeError: 'tuple' object does not support item assignment
@@ -1762,21 +1762,21 @@ TypeError: 'tuple' object does not support item assignment
 ([1, 2], [3, 4], [5, 6, 1000, 99, 999])
 ```
 
-But I thought tuples were immutable...
+Но я думал, что кортежи неизменяемы... Что происходит?
 
-#### 💡 Explanation:
+#### 💡 Объяснение:
 
-* Quoting from https://docs.python.org/3/reference/datamodel.html
+* Цитата из https://docs.python.org/3/reference/datamodel.html
 
-    > Immutable sequences
-        An object of an immutable sequence type cannot change once it is created. (If the object contains references to other objects, these other objects may be mutable and may be modified; however, the collection of objects directly referenced by an immutable object cannot change.)
+    > Неизменяемые последовательности
+      Объект неизменяемого типа последовательности не может измениться после создания. (Если объект содержит ссылки на другие объекты, эти другие объекты могут быть изменяемыми и могут быть изменены; однако набор объектов, на которые непосредственно ссылается неизменяемый объект, не может изменяться.)
 
-* `+=` operator changes the list in-place. The item assignment doesn't work, but when the exception occurs, the item has already been changed in place.
-* There's also an explanation in [official Python FAQ](https://docs.python.org/3/faq/programming.html#why-does-a-tuple-i-item-raise-an-exception-when-the-addition-works).
+* Оператор `+=` изменяет список на месте. Присваивание элемента не работает, но когда возникает исключение, элемент уже был изменен на месте.
+* Также есть объяснение в официальном [Python FAQ](https://docs.python.org/3/faq/programming.html#why-does-a-tuple-i-item-raise-an-exception-when-the-addition-works).
 
 ---
 
-### ▶ The disappearing variable from outer scope
+### ▶ Исчезновение переменной из внешней области видимости
 <!-- Example ID: 7f1e71b6-cb3e-44fb-aa47-87ef1b7decc8 --->
 
 ```py
@@ -1787,19 +1787,19 @@ except Exception as e:
     pass
 ```
 
-**Output (Python 2.x):**
+**Результат (Python 2.x):**
 ```py
 >>> print(e)
 # prints nothing
 ```
 
-**Output (Python 3.x):**
+**Результат (Python 3.x):**
 ```py
 >>> print(e)
 NameError: name 'e' is not defined
 ```
 
-#### 💡 Explanation:
+#### 💡 Объяснение:
 
 * Source: https://docs.python.org/3/reference/compound_stmts.html#except
 
@@ -1833,7 +1833,7 @@ NameError: name 'e' is not defined
      y = [5, 4, 3]
      ```
 
-     **Output:**
+     **Результат:**
      ```py
      >>> f(x)
      UnboundLocalError: local variable 'x' referenced before assignment
@@ -1847,7 +1847,7 @@ NameError: name 'e' is not defined
 
 * In Python 2.x, the variable name `e` gets assigned to `Exception()` instance, so when you try to print, it prints nothing.
 
-    **Output (Python 2.x):**
+    **Результат (Python 2.x):**
     ```py
     >>> e
     Exception()
@@ -1867,7 +1867,7 @@ class SomeClass(str):
 some_dict = {'s': 42}
 ```
 
-**Output:**
+**Результат:**
 ```py
 >>> type(list(some_dict.keys())[0])
 str
@@ -1879,7 +1879,7 @@ str
 str
 ```
 
-#### 💡 Explanation:
+#### 💡 Объяснение:
 
 * Both the object `s` and the string `"s"` hash to the same value because `SomeClass` inherits the `__hash__` method of `str` class.
 * `SomeClass("s") == "s"` evaluates to `True` because `SomeClass` also inherits `__eq__` method from `str` class.
@@ -1901,7 +1901,7 @@ str
   some_dict = {'s':42}
   ```
 
-  **Output:**
+  **Результат:**
   ```py
   >>> s = SomeClass('s')
   >>> some_dict[s] = 40
@@ -1920,7 +1920,7 @@ str
 a, b = a[b] = {}, 5
 ```
 
-**Output:**
+**Результат:**
 ```py
 >>> a
 {5: ({...}, 5)}
@@ -2011,7 +2011,7 @@ for i in x:
     print(i)
 ```
 
-**Output (Python 2.7- Python 3.5):**
+**Результат (Python 2.7- Python 3.5):**
 
 ```
 0
@@ -2026,7 +2026,7 @@ for i in x:
 
 Yes, it runs for exactly **eight** times and stops.
 
-#### 💡 Explanation:
+#### 💡 Объяснение:
 
 * Iteration over a dictionary that you edit at the same time is not supported.
 * It runs eight times because that's the point at which the dictionary resizes to hold more keys (we have eight deletion entries, so a resize is needed). This is actually an implementation detail.
@@ -2046,7 +2046,7 @@ class SomeClass:
         print("Deleted!")
 ```
 
-**Output:**
+**Результат:**
 1\.
 ```py
 >>> x = SomeClass()
@@ -2073,7 +2073,7 @@ Deleted!
 
 Okay, now it's deleted :confused:
 
-#### 💡 Explanation:
+#### 💡 Объяснение:
 + `del x` doesn’t directly call `x.__del__()`.
 + When `del x` is encountered, Python deletes the name `x` from current scope and decrements by 1 the reference count of the object `x` referenced. `__del__()` is called only when the object's reference count reaches zero.
 + In the second output snippet, `__del__()` was not called because the previous statement (`>>> y`) in the interactive interpreter created another reference to the same object (specifically, the `_` magic variable which references the result value of the last non `None` expression on the REPL), thus preventing the reference count from reaching zero when `del y` was encountered.
@@ -2111,7 +2111,7 @@ def another_closure_func():
     return another_inner_func()
 ```
 
-**Output:**
+**Результат:**
 ```py
 >>> some_func()
 1
@@ -2124,7 +2124,7 @@ UnboundLocalError: local variable 'a' referenced before assignment
 UnboundLocalError: local variable 'a' referenced before assignment
 ```
 
-#### 💡 Explanation:
+#### 💡 Объяснение:
 * When you make an assignment to a variable in scope, it becomes local to that scope. So `a` becomes local to the scope of `another_func`, but it has not been initialized previously in the same scope, which throws an error.
 * To modify the outer scope variable `a` in `another_func`, we have to use the `global` keyword.
   ```py
@@ -2134,7 +2134,7 @@ UnboundLocalError: local variable 'a' referenced before assignment
       return a
   ```
 
-  **Output:**
+  **Результат:**
   ```py
   >>> another_func()
   2
@@ -2151,7 +2151,7 @@ UnboundLocalError: local variable 'a' referenced before assignment
       return another_inner_func()
   ```
 
-  **Output:**
+  **Результат:**
   ```py
   >>> another_func()
   2
@@ -2182,7 +2182,7 @@ for idx, item in enumerate(list_4):
     list_4.pop(idx)
 ```
 
-**Output:**
+**Результат:**
 ```py
 >>> list_1
 [1, 2, 3, 4]
@@ -2196,7 +2196,7 @@ for idx, item in enumerate(list_4):
 
 Can you guess why the output is `[2, 4]`?
 
-#### 💡 Explanation:
+#### 💡 Объяснение:
 
 * It's never a good idea to change the object you're iterating over. The correct way to do so is to iterate over a copy of the object instead, and `list_3[:]` does just that.
 
@@ -2241,7 +2241,7 @@ Can you guess why the output is `[2, 4]`?
 ```
 Where did element `3` go from the `numbers` list?
 
-#### 💡 Explanation:
+#### 💡 Объяснение:
 
 - From Python [docs](https://docs.python.org/3.3/library/functions.html#zip), here's an approximate implementation of zip function,
     ```py
@@ -2281,7 +2281,7 @@ for x in range(7):
 print(x, ': x in global')
 ```
 
-**Output:**
+**Результат:**
 ```py
 6 : for x inside loop
 6 : x in global
@@ -2299,7 +2299,7 @@ for x in range(7):
 print(x, ': x in global')
 ```
 
-**Output:**
+**Результат:**
 ```py
 6 : for x inside loop
 6 : x in global
@@ -2307,7 +2307,7 @@ print(x, ': x in global')
 
 3\.
 
-**Output (Python 2.x):**
+**Результат (Python 2.x):**
 ```py
 >>> x = 1
 >>> print([x for x in range(5)])
@@ -2316,7 +2316,7 @@ print(x, ': x in global')
 4
 ```
 
-**Output (Python 3.x):**
+**Результат (Python 3.x):**
 ```py
 >>> x = 1
 >>> print([x for x in range(5)])
@@ -2325,7 +2325,7 @@ print(x, ': x in global')
 1
 ```
 
-#### 💡 Explanation:
+#### 💡 Объяснение:
 
 - In Python, for-loops use the scope they exist in and leave their defined loop-variable behind. This also applies if we explicitly defined the for-loop variable in the global namespace before. In this case, it will rebind the existing variable.
 
@@ -2344,7 +2344,7 @@ def some_func(default_arg=[]):
     return default_arg
 ```
 
-**Output:**
+**Результат:**
 ```py
 >>> some_func()
 ['some_string']
@@ -2356,7 +2356,7 @@ def some_func(default_arg=[]):
 ['some_string', 'some_string', 'some_string']
 ```
 
-#### 💡 Explanation:
+#### 💡 Объяснение:
 
 - The default mutable arguments of functions in Python aren't really initialized every time you call the function. Instead, the recently assigned value to them is used as the default value. When we explicitly passed `[]` to `some_func` as the argument, the default value of the `default_arg` variable was not used, so the function returned as expected.
 
@@ -2366,7 +2366,7 @@ def some_func(default_arg=[]):
         return default_arg
     ```
 
-    **Output:**
+    **Результат:**
     ```py
     >>> some_func.__defaults__ #This will show the default argument values for the function
     ([],)
@@ -2410,14 +2410,14 @@ except IndexError, ValueError:
     print("Caught again!")
 ```
 
-**Output (Python 2.x):**
+**Результат (Python 2.x):**
 ```py
 Caught!
 
 ValueError: list.remove(x): x not in list
 ```
 
-**Output (Python 3.x):**
+**Результат (Python 3.x):**
 ```py
   File "<input>", line 3
     except IndexError, ValueError:
@@ -2425,7 +2425,7 @@ ValueError: list.remove(x): x not in list
 SyntaxError: invalid syntax
 ```
 
-#### 💡 Explanation
+#### 💡 Объяснение
 
 * To add multiple Exceptions to the except clause, you need to pass them as parenthesized tuple as the first argument. The second argument is an optional name, which when supplied will bind the Exception instance that has been raised. Example,
   ```py
@@ -2437,12 +2437,12 @@ SyntaxError: invalid syntax
      print("Caught again!")
      print(e)
   ```
-  **Output (Python 2.x):**
+  **Результат (Python 2.x):**
   ```
   Caught again!
   list.remove(x): x not in list
   ```
-  **Output (Python 3.x):**
+  **Результат (Python 3.x):**
   ```py
     File "<input>", line 4
       except (IndexError, ValueError), e:
@@ -2460,7 +2460,7 @@ SyntaxError: invalid syntax
       print("Caught again!")
       print(e)
   ```
-  **Output:**
+  **Результат:**
   ```
   Caught again!
   list.remove(x): x not in list
@@ -2477,7 +2477,7 @@ b = a
 a = a + [5, 6, 7, 8]
 ```
 
-**Output:**
+**Результат:**
 ```py
 >>> a
 [1, 2, 3, 4, 5, 6, 7, 8]
@@ -2492,7 +2492,7 @@ b = a
 a += [5, 6, 7, 8]
 ```
 
-**Output:**
+**Результат:**
 ```py
 >>> a
 [1, 2, 3, 4, 5, 6, 7, 8]
@@ -2500,7 +2500,7 @@ a += [5, 6, 7, 8]
 [1, 2, 3, 4, 5, 6, 7, 8]
 ```
 
-#### 💡 Explanation:
+#### 💡 Объяснение:
 
 *  `a += b` doesn't always behave the same way as `a = a + b`.  Classes *may* implement the *`op=`* operators differently, and lists do this.
 
@@ -2520,7 +2520,7 @@ class SomeClass:
     y = (x for i in range(10))
 ```
 
-**Output:**
+**Результат:**
 ```py
 >>> list(SomeClass.y)[0]
 5
@@ -2534,19 +2534,19 @@ class SomeClass:
     y = [x for i in range(10)]
 ```
 
-**Output (Python 2.x):**
+**Результат (Python 2.x):**
 ```py
 >>> SomeClass.y[0]
 17
 ```
 
-**Output (Python 3.x):**
+**Результат (Python 3.x):**
 ```py
 >>> SomeClass.y[0]
 5
 ```
 
-#### 💡 Explanation
+#### 💡 Объяснение
 - Scopes nested inside class definition ignore names bound at the class level.
 - A generator expression has its own scope.
 - Starting from Python 3.X, list comprehensions also have their own scope.
@@ -2577,7 +2577,7 @@ def get_middle(some_list):
 ```
 It seems as though Python rounded 2.5 to 2.
 
-#### 💡 Explanation:
+#### 💡 Объяснение:
 
 - This is not a float precision error, in fact, this behavior is intentional. Since Python 3.0, `round()` uses [banker's rounding](https://en.wikipedia.org/wiki/Rounding#Round_half_to_even) where .5 fractions are rounded to the nearest **even** number:
 
@@ -2615,7 +2615,7 @@ I haven't met even a single experience Pythonist till date who has not come acro
 x, y = (0, 1) if True else None, None
 ```
 
-**Output:**
+**Результат:**
 
 ```py
 >>> x, y  # expected (0, 1)
@@ -2637,7 +2637,7 @@ t = ()
 print(t)
 ```
 
-**Output:**
+**Результат:**
 
 ```py
 one
@@ -2665,7 +2665,7 @@ ten_words_list = [
 ]
 ```
 
-**Output**
+**Результат**
 
 ```py
 >>> len(ten_words_list)
@@ -2679,7 +2679,7 @@ a = "python"
 b = "javascript"
 ```
 
-**Output:**
+**Результат:**
 
 ```py
 # An assert statement with an assertion failure message.
@@ -2701,7 +2701,7 @@ some_list = some_list.append(4)
 some_dict = some_dict.update({"key_4": 4})
 ```
 
-**Output:**
+**Результат:**
 
 ```py
 >>> print(some_list)
@@ -2728,7 +2728,7 @@ def similar_recursive_func(a):
     return a
 ```
 
-**Output:**
+**Результат:**
 
 ```py
 >>> some_recursive_func([5, 0])
@@ -2737,7 +2737,7 @@ def similar_recursive_func(a):
 4
 ```
 
-#### 💡 Explanation:
+#### 💡 Объяснение:
 
 * For 1, the correct statement for expected behavior is `x, y = (0, 1) if True else (None, None)`.
 
@@ -2799,7 +2799,7 @@ def similar_recursive_func(a):
 1
 ```
 
-#### 💡 Explanation:
+#### 💡 Объяснение:
 
 - It might appear at first that the default separator for split is a single space `' '`, but as per the [docs](https://docs.python.org/3/library/stdtypes.html#str.split)
     >  If sep is not specified or is `None`, a different splitting algorithm is applied: runs of consecutive whitespace are regarded as a single separator, and the result will contain no empty strings at the start or end if the string has leading or trailing whitespace. Consequently, splitting an empty string or a string consisting of just whitespace with a None separator returns `[]`.
@@ -2831,7 +2831,7 @@ def _another_weird_name_func():
 
 ```
 
-**Output**
+**Результат**
 
 ```py
 >>> from module import *
@@ -2843,7 +2843,7 @@ Traceback (most recent call last):
 NameError: name '_another_weird_name_func' is not defined
 ```
 
-#### 💡 Explanation:
+#### 💡 Объяснение:
 
 - It is often advisable to not use wildcard imports. The first obvious reason for this is, in wildcard imports, the names with a leading underscore don't get imported. This may lead to errors during runtime.
 - Had we used `from ... import a, b, c` syntax, the above `NameError` wouldn't have occurred.
@@ -2862,7 +2862,7 @@ NameError: name '_another_weird_name_func' is not defined
     def _another_weird_name_func():
         print("works!")
     ```
-    **Output**
+    **Результат**
 
     ```py
     >>> _another_weird_name_func()
@@ -2891,7 +2891,7 @@ True
 False
 ```
 
-#### 💡 Explanation:
+#### 💡 Объяснение:
 
 - The `sorted` method always returns a list, and comparing lists and tuples always returns `False` in Python. 
 
@@ -2934,14 +2934,14 @@ if noon_time:
     print("Time at noon is", noon_time)
 ```
 
-**Output (< 3.5):**
+**Результат (< 3.5):**
 
 ```py
 ('Time at noon is', datetime.time(12, 0))
 ```
 The midnight time is not printed.
 
-#### 💡 Explanation:
+#### 💡 Объяснение:
 
 Before Python 3.5, the boolean value for `datetime.time` object was considered to be `False` if it represented midnight in UTC. It is error-prone when using the `if obj:` syntax to check if the `obj` is null or some equivalent of "empty."
 
@@ -2962,10 +2962,10 @@ Well, here you go
 import antigravity
 ```
 
-**Output:**
+**Результат:**
 Sshh... It's a super-secret.
 
-#### 💡 Explanation:
+#### 💡 Объяснение:
 + `antigravity` module is one of the few easter eggs released by Python developers.
 + `import antigravity` opens up a web browser pointing to the [classic XKCD comic](https://xkcd.com/353/) about Python.
 + Well, there's more to it. There's **another easter egg inside the easter egg**. If you look at the [code](https://github.com/python/cpython/blob/master/Lib/antigravity.py#L7-L17), there's a function defined that purports to implement the [XKCD's geohashing algorithm](https://xkcd.com/426/).
@@ -2987,14 +2987,14 @@ label .breakout
 print("Freedom!")
 ```
 
-**Output (Python 2.3):**
+**Результат (Python 2.3):**
 ```py
 I am trapped, please rescue!
 I am trapped, please rescue!
 Freedom!
 ```
 
-#### 💡 Explanation:
+#### 💡 Объяснение:
 - A working version of `goto` in Python was [announced](https://mail.python.org/pipermail/python-announce-list/2004-April/002982.html) as an April Fool's joke on 1st April 2004.
 - Current versions of Python do not have this module.
 - Although it works, but please don't use it. Here's the [reason](https://docs.python.org/3/faq/design.html#why-is-there-no-goto) to why `goto` is not present in Python.
@@ -3019,7 +3019,7 @@ SyntaxError: not a chance
 Скобочки? Ни за что! Если это разочаровывало вас, используйте PHP :). Хорошо, еще одна удивительная вещь, можете ли вы найти ошибку
 `SyntaxError` которая вызвана в модуле `__future__` [code](https://github.com/python/cpython/blob/master/Lib/__future__.py)?
 
-#### 💡 Explanation:
+#### 💡 Объяснение:
 + The `__future__` module is normally used to provide features from future versions of Python. The "future" in this specific context is however, ironic.
 + This is an easter egg concerned with the community's feelings on this issue.
 + The code is actually present [here](https://github.com/python/cpython/blob/025eb98dc0c1dc27404df6c544fc2944e0fa9f3a/Python/future.c#L49) in `future.c` file.
@@ -3135,7 +3135,7 @@ True
           print("Does not exist")
 ```
 
-**Output:**
+**Результат:**
 ```py
 >>> some_list = [1, 2, 3, 4, 5]
 >>> does_exists_num(some_list, 4)
@@ -3155,12 +3155,12 @@ else:
     print("Try block executed successfully...")
 ```
 
-**Output:**
+**Результат:**
 ```py
 Try block executed successfully...
 ```
 
-#### 💡 Explanation:
+#### 💡 Объяснение:
 - The `else` clause after a loop is executed only when there's no explicit `break` after all the iterations. You can think of it as a "nobreak" clause.
 - `else` clause after a try block is also called "completion clause" as reaching the `else` clause in a `try` statement means that the try block actually completed successfully.
 
@@ -3172,7 +3172,7 @@ def some_func():
     Ellipsis
 ```
 
-**Output**
+**Результат**
 ```py
 >>> some_func()
 # No output, No Error
@@ -3186,7 +3186,7 @@ NameError: name 'SomeRandomString' is not defined
 Ellipsis
 ```
 
-#### 💡 Explanation
+#### 💡 Объяснение
 - In Python, `Ellipsis` is a globally available built-in object which is equivalent to `...`.
     ```py
     >>> ...
@@ -3229,7 +3229,7 @@ Ellipsis
 <!-- Example ID: ff473ea8-a3b1-4876-a6f0-4378aff790c1 --->
 The spelling is intended. Please, don't submit a patch for this.
 
-**Output (Python 3.x):**
+**Результат (Python 3.x):**
 ```py
 >>> infinity = float('infinity')
 >>> hash(infinity)
@@ -3238,7 +3238,7 @@ The spelling is intended. Please, don't submit a patch for this.
 -314159
 ```
 
-#### 💡 Explanation:
+#### 💡 Объяснение:
 - Hash of infinity is 10⁵ x π.
 - Interestingly, the hash of `float('-inf')` is "-10⁵ x π" in Python 3, whereas "-10⁵ x e" in Python 2.
 
@@ -3254,7 +3254,7 @@ class Yo(object):
         self.bro = True
 ```
 
-**Output:**
+**Результат:**
 ```py
 >>> Yo().bro
 True
@@ -3273,7 +3273,7 @@ class Yo(object):
         self.bro = True
 ```
 
-**Output:**
+**Результат:**
 ```py
 >>> Yo().bro
 True
@@ -3296,7 +3296,7 @@ class A(object):
         return __variable # not initialized anywhere yet
 ```
 
-**Output:**
+**Результат:**
 ```py
 >>> A().__variable
 Traceback (most recent call last):
@@ -3308,7 +3308,7 @@ AttributeError: 'A' object has no attribute '__variable'
 ```
 
 
-#### 💡 Explanation:
+#### 💡 Объяснение:
 
 * [Name Mangling](https://en.wikipedia.org/wiki/Name_mangling) is used to avoid naming collisions between different namespaces.
 * In Python, the interpreter modifies (mangles) the class member names starting with `__` (double underscore a.k.a "dunder") and not ending with more than one trailing underscore by adding `_NameOfTheClass` in front.
@@ -3324,7 +3324,7 @@ AttributeError: 'A' object has no attribute '__variable'
 
 ### ▶ Skipping lines?
 <!-- Example ID: d50bbde1-fb9d-4735-9633-3444b9d2f417 --->
-**Output:**
+**Результат:**
 ```py
 >>> value = 11
 >>> valuе = 32
@@ -3336,7 +3336,7 @@ Wut?
 
 **Note:** The easiest way to reproduce this is to simply copy the statements from the above snippet and paste them into your file/shell.
 
-#### 💡 Explanation
+#### 💡 Объяснение
 
 Some non-Western characters look identical to letters in the English alphabet but are considered distinct by the interpreter.
 
@@ -3375,7 +3375,7 @@ def energy_receive():
     return np.empty((), dtype=np.float).tolist()
 ```
 
-**Output:**
+**Результат:**
 ```py
 >>> energy_send(123.456)
 >>> energy_receive()
@@ -3384,7 +3384,7 @@ def energy_receive():
 
 Where's the Nobel Prize?
 
-#### 💡 Explanation:
+#### 💡 Объяснение:
 
 * Notice that the numpy array created in the `energy_send` function is not returned, so that memory space is free to reallocate.
 * `numpy.empty()` returns the next free memory slot without reinitializing it. This memory spot just happens to be the same one that was just freed (usually, but not always).
@@ -3404,7 +3404,7 @@ def square(x):
   return sum_so_far
 ```
 
-**Output (Python 2.x):**
+**Результат (Python 2.x):**
 
 ```py
 >>> square(10)
@@ -3415,7 +3415,7 @@ Shouldn't that be 100?
 
 **Note:** If you're not able to reproduce this, try running the file [mixed_tabs_and_spaces.py](/mixed_tabs_and_spaces.py) via the shell.
 
-#### 💡 Explanation
+#### 💡 Объяснение
 
 * **Don't mix tabs and spaces!** The character just preceding return is a "tab",  and the code is indented by multiple of "4 spaces" elsewhere in the example.
 * This is how Python handles tabs:
@@ -3424,7 +3424,7 @@ Shouldn't that be 100?
 * So the "tab" at the last line of `square` function is replaced with eight spaces, and it gets into the loop.
 * Python 3 is kind enough to throw an error for such cases automatically.
 
-    **Output (Python 3.x):**
+    **Результат (Python 3.x):**
     ```py
     TabError: inconsistent use of tabs and spaces in indentation
     ```
@@ -3447,7 +3447,7 @@ Shouldn't that be 100?
 0.012188911437988281
 ```
 
-#### 💡 Explanation:
+#### 💡 Объяснение:
 + `+=` is faster than `+` for concatenating more than two strings because the first string (example, `s1` for `s1 += s2 + s3`) is not destroyed while calculating the complete string.
 
 ---
@@ -3484,7 +3484,7 @@ def convert_list_to_string(l, iters):
     assert len(s) == 3*iters
 ```
 
-**Output:**
+**Результат:**
 
 ```py
 # Executed in ipython shell using %timeit for better readability of results.
@@ -3522,7 +3522,7 @@ Let's increase the number of iterations by a factor of 10.
 86.3 µs ± 2 µs per loop (mean ± std. dev. of 7 runs, 1000 loops each)
 ```
 
-#### 💡 Explanation
+#### 💡 Объяснение
 - You can read more about [timeit](https://docs.python.org/3/library/timeit.html) or [%timeit](https://ipython.org/ipython-doc/dev/interactive/magics.html#magic-timeit) on these links. They are used to measure the execution time of code pieces.
 - Don't use `+` for generating long strings — In Python, `str` is immutable, so the left and right strings have to be copied into the new string for every pair of concatenations. If you concatenate four strings of length 10, you'll be copying (10+10) + ((10+10)+10) + (((10+10)+10)+10) = 90 characters instead of just 40 characters. Things get quadratically worse as the number and size of the string increases (justified with the execution times of `add_bytes_with_plus` function)
 - Therefore, it's advised to use `.format.` or `%` syntax (however, they are slightly slower than `+` for very short strings).
@@ -3553,7 +3553,7 @@ some_dict = {str(i): 1 for i in range(1_000_000)}
 another_dict = {str(i): 1 for i in range(1_000_000)}
 ```
 
-**Output:**
+**Результат:**
 ```py
 >>> %timeit some_dict['5']
 28.6 ns ± 0.115 ns per loop (mean ± std. dev. of 7 runs, 10000000 loops each)
@@ -3572,7 +3572,7 @@ KeyError: 1
 ```
 Why are same lookups becoming slower?
 
-#### 💡 Explanation:
+#### 💡 Объяснение:
 + CPython has a generic dictionary lookup function that handles all types of keys (`str`, `int`, any object ...), and a specialized one for the common case of dictionaries composed of `str`-only keys.
 + The specialized function (named `lookdict_unicode` in CPython's [source](https://github.com/python/cpython/blob/522691c46e2ae51faaad5bbbce7d959dd61770df/Objects/dictobject.c#L841)) knows all existing keys (including the looked-up key) are strings, and uses the faster & simpler string comparison to compare keys, instead of calling the `__eq__` method.
 + The first time a `dict` instance is accessed with a non-`str` key, it's modified so future lookups use the generic function.
@@ -3597,7 +3597,7 @@ def dict_size(o):
 
 ```
 
-**Output:** (Python 3.8, other Python 3 versions may vary a little)
+**Результат:** (Python 3.8, other Python 3 versions may vary a little)
 ```py
 >>> o1 = SomeClass()
 >>> o2 = SomeClass()
@@ -3633,7 +3633,7 @@ Let's try again... In a new interpreter:
 
 What makes those dictionaries become bloated? And why are newly created objects bloated as well?
 
-#### 💡 Explanation:
+#### 💡 Объяснение:
 + CPython is able to reuse the same "keys" object in multiple dictionaries. This was added in [PEP 412](https://www.python.org/dev/peps/pep-0412/) with the motivation to reduce memory usage, specifically in dictionaries of instances - where keys (instance attributes) tend to be common to all instances.
 + This optimization is entirely seamless for instance dictionaries, but it is disabled if certain assumptions are broken.
 + Key-sharing dictionaries do not support deletion; if an instance attribute is deleted, the dictionary is "unshared", and key-sharing is disabled for all future instances of the same class.
@@ -3645,7 +3645,7 @@ What makes those dictionaries become bloated? And why are newly created objects 
 <!-- Example ID: f885cb82-f1e4-4daa-9ff3-972b14cb1324 --->
 * `join()` is a string operation instead of list operation. (sort of counter-intuitive at first usage)
 
-  **💡 Explanation:** If `join()` is a method on a string, then it can operate on any iterable (list, tuple, iterators). If it were a method on a list, it'd have to be implemented separately by every type. Also, it doesn't make much sense to put a string-specific method on a generic `list` object API.
+  **💡 Объяснение:** If `join()` is a method on a string, then it can operate on any iterable (list, tuple, iterators). If it were a method on a list, it'd have to be implemented separately by every type. Also, it doesn't make much sense to put a string-specific method on a generic `list` object API.
   
 * Few weird looking but semantically correct statements:
   + `[] = ()` is a semantically correct statement (unpacking an empty `tuple` into an empty `list`)
@@ -3663,7 +3663,7 @@ What makes those dictionaries become bloated? And why are newly created objects 
   5
   ```
 
-  **💡 Explanation:**
+  **💡 Объяснение:**
   + There is no `++` operator in Python grammar. It is actually two `+` operators.
   + `++a` parses as `+(+a)` which translates to `a`. Similarly, the output of the statement `--a` can be justified.
   + This StackOverflow [thread](https://stackoverflow.com/questions/3654830/why-are-there-no-and-operators-in-python) discusses the rationale behind the absence of increment and decrement operators in Python.
@@ -3681,7 +3681,7 @@ What makes those dictionaries become bloated? And why are newly created objects 
   >>> a
   >>> 44
   ```
-  **💡 Explanation:** This prank comes from [Raymond Hettinger's tweet](https://twitter.com/raymondh/status/1131103570856632321?lang=en). The space invader operator is actually just a malformatted `a -= (-1)`. Which is equivalent to `a = a - (- 1)`. Similar for the `a += (+ 1)` case.
+  **💡 Объяснение:** This prank comes from [Raymond Hettinger's tweet](https://twitter.com/raymondh/status/1131103570856632321?lang=en). The space invader operator is actually just a malformatted `a -= (-1)`. Which is equivalent to `a = a - (- 1)`. Similar for the `a += (+ 1)` case.
   
 * Python has an undocumented [converse implication](https://en.wikipedia.org/wiki/Converse_implication) operator. 
      
@@ -3696,7 +3696,7 @@ What makes those dictionaries become bloated? And why are newly created objects 
      True
      ```
 
-     **💡 Explanation:** If you replace `False` and `True` by 0 and 1 and do the maths, the truth table is equivalent to a converse implication operator. ([Source](https://github.com/cosmologicon/pywat/blob/master/explanation.md#the-undocumented-converse-implication-operator))
+     **💡 Объяснение:** If you replace `False` and `True` by 0 and 1 and do the maths, the truth table is equivalent to a converse implication operator. ([Source](https://github.com/cosmologicon/pywat/blob/master/explanation.md#the-undocumented-converse-implication-operator))
      
 * Since we are talking operators, there's also `@` operator for matrix multiplication (don't worry, this time it's for real).
 
@@ -3706,7 +3706,7 @@ What makes those dictionaries become bloated? And why are newly created objects 
      46
      ```
 
-     **💡 Explanation:** The `@` operator was added in Python 3.5 keeping the scientific community in mind. Any object can overload `__matmul__` magic method to define behavior for this operator.
+     **💡 Объяснение:** The `@` operator was added in Python 3.5 keeping the scientific community in mind. Any object can overload `__matmul__` magic method to define behavior for this operator.
 
 * From Python 3.8 onwards you can use a typical f-string syntax like `f'{some_var=}` for quick debugging. Example,
     ```py
